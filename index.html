@@ -80,30 +80,13 @@
                                 d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z"
                                 clip-rule="evenodd" />
                         </svg>
-                        <input type="text" class="grow" placeholder="Search" />
+                        <input id="search-text" type="text" class="grow" placeholder="Search" />
                     </label>
-                    <button class="bg-blue-500 text-lg text-white font-bold px-7 py-3 rounded-lg">Buy Now</button>
+                    <button onclick="search()" class="bg-blue-500 text-lg text-white font-bold px-7 py-3 rounded-lg">Search</button>
                 </div>
             </div>
             <div class="my-10">
-                <div class="grid grid-cols-3 gap-4">
-                    <div class="card border-2 rounded-md">
-                        <figure class="p-5">
-                            <img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes"
-                                class="rounded-md" />
-                        </figure>
-                        <div class="card-body items-center text-center p-5 space-y-3">
-                            <h2 class="text-3xl font-bold">Iphone 13 Pro Max</h2>
-                            <p class="text-gray-500">There are many variations of passages of available, but the
-                                majority have suffered</p>
-                            <h4 class="text-3xl font-bold">$999</h4>
-                            <div class="card-actions">
-                                <button class="bg-blue-500 text-lg text-white font-bold px-7 py-3 rounded-lg">Buy
-                                    Now</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <div id="phone-item-container" class="grid grid-cols-3 gap-4"></div>
         </section>
     </main>
 
@@ -180,6 +163,7 @@
     <!-- link js file -->
 
     <script src="./script/main.js"></script>
+    <script src="./script/utility.js"></script>
 
 </body>
 
