@@ -21,38 +21,42 @@
 
 </head>
 
-<body class="poppins container mx-auto">
+<body class="poppins mx-auto">
 
     <!-- start header section -->
 
-    <header class="mb-10">
+    <header class="overflow-hidden mb-10">
         <div class="bg-teal-50">
-            <div class="w-4/5 mx-auto">
-                <nav class="py-5">
+            <div class="w-full lg:w-4/5 mx-auto px-1 lg:p-0">
+                <nav class="py-1 lg:py-5">
                     <div class="navbar">
                         <div class="navbar-start">
-                            <a class="text-4xl font-bold">Hot Gadgets</a>
+                            <a class="text 2xl lg:text-4xl font-bold">Hot Gadgets</a>
                         </div>
                         <div class="navbar-end">
-                            <button class="bg-blue-500 text-lg text-white font-bold px-7 py-3 rounded-lg">Sign
+                            <button
+                                class="bg-blue-500 text-xs lg:text-lg text-white font-bold px-3 lg:px-7 py-1 lg:py-3 rounded-lg">Sign
                                 Up</button>
                         </div>
                     </div>
                 </nav>
-                <div class="w-4/5 mx-auto pb-96">
-                    <div class="text-center space-y-5 py-10">
-                        <h1 class="text-6xl font-bold">Apple Iphone 13 Pro Max</h1>
-                        <p class="text-gray-500 text-lg">There are many variations of passages of Lorem Ipsum available,
+                <div class="w-full lg:w-4/5 mx-auto pb-20 lg:pb-96">
+                    <div class="text-center space-y-3 lg:space-y-10 py-10">
+                        <h1 class="text-2xl lg:text-6xl font-bold">Apple Iphone 13 Pro Max</h1>
+                        <p class="text-gray-500 text-xs lg:text-lg">There are many variations of passages of Lorem Ipsum
+                            available,
                             but the
                             majority have
                             suffered
                             alteration in some form, by injected humou</p>
-                        <button class="bg-blue-500 text-lg text-white font-bold px-7 py-3 rounded-lg">Buy Now</button>
+                        <button
+                            class="bg-blue-500 text-xs lg:text-lg text-white font-bold px-3 lg:px-7 py-1 lg:py-3 rounded-lg">Buy
+                            Now</button>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="w-4/5 mx-auto -mt-96">
+        <div class="w-4/5 mx-auto -mt-20 lg:-mt-96">
             <div class="w-4/5 mx-auto flex justify-around items-end">
                 <div><img src="./image/pngwing 2.png" alt="error"></div>
                 <div><img src="./image/pngwing 1.png" alt="error"></div>
@@ -65,28 +69,76 @@
 
     <!-- start main section -->
 
-    <main class="w-4/5 mx-auto">
+    <main class="w-full lg:w-4/5 mx-auto px-5 lg:px-0">
         <section class="text-center">
             <div class="my-2">
-                <h2 class="text-4xl font-semibold">Search your phone</h2>
+                <h2 class="text-xl lg:text-4xl font-semibold">Search your phone</h2>
             </div>
-            <div class="w-3/5 mx-auto py-5">
-                <div class="flex items-center gap-2">
+            <div class="w-4/5 lg:w-3/5 mx-auto py-2 lg:py-5">
+                <div class="flex flex-col lg:flex-row items-center gap-2">
                     <label
-                        class="h-[52px] flex-1 input focus-within:outline-none input-bordered flex items-center gap-2">
+                        class="lg:h-[52px] flex-1 input focus-within:outline-none input-bordered flex items-center gap-2">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"
-                            class="w-6 h-6 opacity-70">
+                            class="w-3 lg:w-6 h-3 lg:h-6 opacity-70">
                             <path fill-rule="evenodd"
                                 d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z"
                                 clip-rule="evenodd" />
                         </svg>
-                        <input id="search-text" type="text" class="grow" placeholder="Search" />
+                        <input id="search-text" type="text" class="text-xs lg:text-base grow py-1 lg:py-0"
+                            placeholder="Search" />
                     </label>
-                    <button onclick="search()" class="bg-blue-500 text-lg text-white font-bold px-7 py-3 rounded-lg">Search</button>
+                    <button onclick="search()"
+                        class="bg-blue-500 text-xs lg:text-lg text-white font-bold px-3 lg:px-7 py-1 lg:py-3 rounded-lg">Search</button>
                 </div>
             </div>
-            <div class="my-10">
-                <div id="phone-item-container" class="grid grid-cols-3 gap-4"></div>
+            <div id="up-spinner" class="my-5 lg:my-10 hidden">
+                <span class="loading loading-spinner loading-lg text-blue-500"></span>
+            </div>
+            <div class="px-5">
+                <div id="phone-item-container" class="grid grid-cols-1 lg:grid-cols-3 gap-4 mt-5 lg:mt-10"></div>
+            </div>
+            <div id="down-spinner" class="my-5 lg:my-10 hidden">
+                <span class="loading loading-spinner loading-lg text-blue-500"></span>
+            </div>
+            <div class="my-5 lg:my-10">
+                <button id="show-all"
+                    class="bg-blue-500 text-xs text-white font-bold px-3 lg:px-7 py-1 lg:py-3 rounded-lg">Show
+                    All</button>
+            </div>
+            <div>
+                <dialog id="my_modal_3" class="modal overflow-hidden">
+                    <div class="max-w-2xl max-h-fit text-start modal-box p-2 lg:p-10">
+                        <form method="dialog">
+                            <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+                        </form>
+                        <div class="flex justify-center pb-3">
+                            <img id="set-img" src="" alt="">
+                        </div>
+                        <div class="space-y-1">
+                            <h3 id="phone-title" class="text-2xl lg:text-4xl font-bold"></h3>
+                            <p id="phone-dec" class="text-[10px] lg:text-lg text-gray-500">It is a long established fact
+                                that a reader will be distracted by the readable content of a page when looking at its
+                                layout.</p>
+                            <p class="text-black text-[10px] lg:text-lg font-bold">Storage : <span id="storage"
+                                    class="text-gray-500 font-normal"></span></p>
+                            <p class="text-black text-[10px] lg:text-lg font-bold">Display : <span id="display"
+                                    class="text-gray-500 font-normal"></span></p>
+                            <p class="text-black text-[10px] lg:text-lg font-bold">Chipset : <span id="chipset"
+                                    class="text-gray-500 font-normal"></span></p>
+                            <p class="text-black text-[10px] lg:text-lg font-bold">Memory : <span id="memory"
+                                    class="text-gray-500 font-normal"></span></p>
+                            <p class="text-black text-[10px] lg:text-lg font-bold">Slug : <span id="slug"
+                                    class="text-gray-500 font-normal"></span></p>
+                            <p class="text-black text-[10px] lg:text-lg font-bold">Release : <span id="release"
+                                    class="text-gray-500 font-normal"></span></p>
+                            <p class="text-black text-[10px] lg:text-lg font-bold">Brand : <span id="brand"
+                                    class="text-gray-500 font-normal"></span></p>
+                            <p class="text-black text-[10px] lg:text-lg font-bold">GPS : <span id="gps"
+                                    class="text-gray-500 font-normal"></span></p>
+                        </div>
+                    </div>
+                </dialog>
+            </div>
         </section>
     </main>
 
@@ -95,75 +147,75 @@
     <!-- start footer section -->
 
     <footer class="bg-teal-50">
-        <div class="w-4/5 mx-auto py-10">
-            <div class="flex justify-between items-center border-b-2 py-12">
-                <div class="space-y-3">
-                    <h3 class="text-3xl font-medium">Hot Gadgets</h3>
-                    <p class="text-gray-500">You can definitely work.</p>
+        <div class="w-full lg:w-4/5 mx-auto px-1 lg:px-0 py-5 lg:py-10">
+            <div class="flex justify-between items-center border-b-2 py-4 lg:py-12">
+                <div class="space-y-1 lg:space-y-3">
+                    <h3 class="text-lg lg:text-3xl font-medium">Hot Gadgets</h3>
+                    <p class="text-xs lg:text-base text-gray-500">You can definitely work.</p>
                 </div>
-                <div class="flex items-center gap-5">
-                    <div class="flex items-center gap-5">
-                        <div class="w-10 h-10 bg-white rounded-full flex justify-center items-center"><img
+                <div class="flex items-center gap-2 lg:gap-5">
+                    <div class="flex items-center gap-2 lg:gap-5">
+                        <div class="w-5 lg:w-10 h-5 lg:h-10 bg-white rounded-full flex justify-center items-center"><img
                                 src="./image/f.png" alt="error"></div>
-                        <div class="w-10 h-10 bg-white rounded-full flex justify-center items-center"><img
+                        <div class="w-5 lg:w-10 h-5 lg:h-10 bg-white rounded-full flex justify-center items-center"><img
                                 src="./image/twitter.png" alt="error"></div>
-                        <div class="w-10 h-10 bg-white rounded-full flex justify-center items-center"><img
+                        <div class="w-5 lg:w-10 h-5 lg:h-10 bg-white rounded-full flex justify-center items-center"><img
                                 src="./image/instagram.png" alt="error"></div>
                     </div>
                     <div>
-                        <button class="bg-blue-500 text-lg text-white font-bold px-7 py-3 rounded-lg">Join
+                        <button
+                            class="bg-blue-500 text-xs lg:text-lg text-white font-bold px-3 lg:px-7 py-1 lg:py-3 rounded-lg"">Join
                             Premium</button>
                     </div>
                 </div>
             </div>
-            <div class="flex justify-between items-center py-14">
-                <div>
-                    <ul class="text-lg text-gray-500">
-                        <li>Product</li>
-                        <li>Browse jobs</li>
-                        <li>Remote jobs</li>
-                        <li>Startup jobs</li>
-                        <li>Company jobs</li>
-                    </ul>
+            <div class=" flex justify-between items-start gap-2 py-5 lg:py-14">
+                            <div>
+                                <ul class="text-[10px] lg:text-lg text-gray-500">
+                                    <li>Product</li>
+                                    <li>Browse jobs</li>
+                                    <li>Remote jobs</li>
+                                    <li>Startup jobs</li>
+                                    <li>Company jobs</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <ul class="text-[10px] lg:text-lg text-gray-500">
+                                    <li>Popular</li>
+                                    <li>UIUX Design</li>
+                                    <li>Product Design</li>
+                                    <li>Back-End Developer</li>
+                                    <li>Front-End Developer</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <ul class="text-[10px] lg:text-lg text-gray-500">
+                                    <li>Resource</li>
+                                    <li>Faq</li>
+                                    <li>Support</li>
+                                    <li>Privacy Policy</li>
+                                    <li>Terms of Service</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <ul class="text-[10px] lg:text-lg text-gray-500">
+                                    <li>Company</li>
+                                    <li>About Us</li>
+                                    <li>Contact Us</li>
+                                    <li>Career Tips</li>
+                                    <li>Careers</li>
+                                </ul>
+                            </div>
+                    </div>
                 </div>
-                <div>
-                    <ul class="text-lg text-gray-500">
-                        <li>Popular</li>
-                        <li>UIUX Design</li>
-                        <li>Product Design</li>
-                        <li>Back-End Developer</li>
-                        <li>Front-End Developer</li>
-                    </ul>
-                </div>
-                <div>
-                    <ul class="text-lg text-gray-500">
-                        <li>Resource</li>
-                        <li>Faq</li>
-                        <li>Support</li>
-                        <li>Privacy Policy</li>
-                        <li>Terms of Service</li>
-                    </ul>
-                </div>
-                <div>
-                    <ul class="text-lg text-gray-500">
-                        <li>Company</li>
-                        <li>About Us</li>
-                        <li>Contact Us</li>
-                        <li>Career Tips</li>
-                        <li>Careers</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
     </footer>
 
     <!-- end footer section -->
 
-
     <!-- link js file -->
 
-    <script src="./script/main.js"></script>
     <script src="./script/utility.js"></script>
+    <script src="./script/main.js"></script>
 
 </body>
 
